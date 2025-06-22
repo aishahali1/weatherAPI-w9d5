@@ -1,0 +1,35 @@
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-21T23:58:43.558Z"}
+{"level":"info","message":"GET / 200 36 - 3.067 ms","timestamp":"2025-06-21T23:59:04.456Z"}
+{"level":"info","message":"GET /favicon.ico 404 150 - 2.061 ms","timestamp":"2025-06-21T23:59:04.676Z"}
+{"level":"info","message":"GET / 200 36 - 0.540 ms","timestamp":"2025-06-21T23:59:24.570Z"}
+{"level":"info","message":"GET /signup 404 145 - 4.018 ms","timestamp":"2025-06-21T23:59:55.717Z"}
+{"level":"info","message":"POST /signup 404 146 - 55.546 ms","timestamp":"2025-06-22T00:02:14.049Z"}
+{"level":"info","message":"POST /signup 404 146 - 0.908 ms","timestamp":"2025-06-22T00:03:28.111Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 0.471 ms","timestamp":"2025-06-22T00:04:21.699Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 0.503 ms","timestamp":"2025-06-22T00:04:30.172Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:05:45.418Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 27.414 ms","timestamp":"2025-06-22T00:06:13.168Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 0.757 ms","timestamp":"2025-06-22T00:06:25.552Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:10:23.257Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:10:50.044Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:11:08.607Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 15.953 ms","timestamp":"2025-06-22T00:11:28.882Z"}
+{"level":"info","message":"GET /auth/signup 404 150 - 1.094 ms","timestamp":"2025-06-22T00:12:56.743Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:13:34.429Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 21.086 ms","timestamp":"2025-06-22T00:13:55.344Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:16:02.084Z"}
+{"level":"info","message":"POST /auth/signup 404 151 - 21.073 ms","timestamp":"2025-06-22T00:16:08.718Z"}
+{"level":"error","message":"Error:","timestamp":"2025-06-22T00:20:14.701Z"}
+{"level":"info","message":"POST /api/auth/signup 500 52 - 10027.790 ms","timestamp":"2025-06-22T00:20:14.705Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:22:07.191Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:26:34.419Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:30:39.008Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:31:23.456Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:31:51.964Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:33:13.497Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:34:40.790Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:36:42.240Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:38:34.953Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:40:42.250Z"}
+{"level":"info","message":"server is running at http://localhost:3000","timestamp":"2025-06-22T00:40:50.933Z"}
+{"level":"info","message":"POST /api/auth/signup 201 502 - 301.879 ms","timestamp":"2025-06-22T00:40:56.975Z"}
