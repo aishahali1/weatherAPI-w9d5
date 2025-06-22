@@ -2,7 +2,6 @@ import { log } from 'console';
 import { SignOptions } from 'jsonwebtoken';
 import  jwt  from 'jsonwebtoken';
 const secret = process.env.JWT_SECRET 
-// ensure TypeScript knows it's string
 console.log(secret);
 
 if (!secret) {
