@@ -1,12 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import jwt from 'jsonwebtoken';
-import { UsersCollection } from '../models/user.model';
-import { jwtConfig } from '../config/jwt';
-import { AppError } from '../utils/errors';
-import { FORBIDDEN, UNAUTHORIZED } from '../utils/http-status';
+import  UserCollection, {UserDocument}  from '@/models/user.model';
+import {  UNAUTHORIZED, NOT_FOUND,BAD_REQUEST } from '../utils/http-status';
+import { verifyToken } from '../controllers/auth.controller';
 
 export interface authRequest extends Request {
-  user?: any;
+  user: UserDocument;
 }
 
 export const authorized = async (
@@ -15,56 +13,26 @@ export const authorized = async (
   next: NextFunction
 ) => {
   try {
+      const token = req.headers.authorization?.split(' ')[1]
+      if (!token){
+        res.status(UNAUTHORIZED).json({message: 'invalid token'})
+        return
+      }
+     const decoded = verifyToken(token)
+     if(!decoded){
+        res.status(UNAUTHORIZED).json({message: 'invalid token'})
+        return
+     }
 
-    const authHeader = req.headers.authorization;
-    let token: string | undefined;
-
-    if (authHeader && authHeader.startsWith('Bearer')) {
-      token = authHeader.split(' ')[1];
-    } else if (req.cookies?.accessToken) {
-      token = req.cookies.accessToken;
-    }
-
-    if (!token) {
-      return next(new AppError('You are not logged in', UNAUTHORIZED));
-    }
-
-    const decoded = jwt.verify(token, jwtConfig.secret) as {
-      type: string;
-      user: {
-        id: string;
-        email: string;
-        role: string;
-      };
-    };
-
-    if (decoded.type !== 'access') {
-      return next(new AppError('Invalid token type', UNAUTHORIZED));
-    }
-
-    const user = await UsersCollection.findOne({ id: decoded.user.id });
-    if (!user) {
-      return next(new AppError('User no longer exists', UNAUTHORIZED));
-    }
-
-    req.user = user;
-    next();
-  } catch (error) {
-    if (error instanceof jwt.TokenExpiredError) {
-      next(new AppError('Token has expired', UNAUTHORIZED));
-    } else {
-      next(new AppError('Invalid token', UNAUTHORIZED));
-    }
+     const user = await UserCollection.findById(decoded.id)
+     if(!user){
+        res.status(NOT_FOUND).json({message: 'user not found'})
+        return
+     }
+     req.user = user 
+     next()
+  } catch (e: any) {
+     res.status(BAD_REQUEST).json({message: e.message})
   }
-};
+}
 
-export const restrictTo = (...roles: string[]) => {
-  return (req: authRequest, res: Response, next: NextFunction) => {
-    if (!roles.includes(req.user.role)) {
-      return next(
-        new AppError('You do not have permission to perform this action', FORBIDDEN)
-      );
-    }
-    next();
-  };
-}; 
