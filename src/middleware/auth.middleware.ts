@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
-import  UserCollection, {UserDocument}  from '@/models/user.model';
+import  UserCollection  from '../models/user.model';
 import {  UNAUTHORIZED, NOT_FOUND,BAD_REQUEST } from '../utils/http-status';
 import { verifyToken } from '../controllers/auth.controller';
 
 export interface authRequest extends Request {
-  user: UserDocument;
+  user?: any;
 }
 
 export const authorized = async (
